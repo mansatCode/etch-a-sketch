@@ -47,5 +47,21 @@ body {
 /* Main */
 
 .main {
-    min-height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 24px;
+}
+
+.main #canvas {
+    width: 500px;
+    height: 500px;
+    background-color: aqua;
+
+    margin: 24px;
+}
+
+.main #canvas .row {
+    display: flex;
 }
