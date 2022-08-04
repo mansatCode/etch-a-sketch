@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css"/>
     <script src="js/script.js" defer></script>
+    <script src="js/slider.js" defer></script>
     <title>Etch-a-Sketch</title>
 </head>
 <body ondragstart="return false"; ondrop="return false">
@@ -15,7 +16,21 @@
 
     <main class="main">
         <div class="settings">
+
             <button>Clear</button>
+
+            <div class="slider">
+                <form class="range">
+                    <div class="formGroup rangeSlider">
+                        <input type="range" step="1">
+                    </div>
+                    <div class="formGroup rangeValue">
+                        <label>Grid Dimensions</label>
+                        <span></span>
+                    </div>
+                </form>
+            </div>
+
         </div>
         <div id="canvas">
             <code id="code"></code>
