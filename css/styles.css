@@ -8,6 +8,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: #f6ebf4;
 }
 
 /* Header */
@@ -16,7 +17,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f6ebf4;
     padding: 24px;
 }
 
@@ -31,7 +31,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f6ebf4;
 
     position: absolute;
     bottom: 0;
@@ -57,7 +56,7 @@ body {
 .main #canvas {
     width: 500px;
     height: 500px;
-    background-color: aqua;
+    background-color: white;
 
     margin: 24px;
 }

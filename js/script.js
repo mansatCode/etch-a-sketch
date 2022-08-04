@@ -1,8 +1,10 @@
 const DEFAULT_SIZE = 16;
+let isMouseDown = false;
+
+const body = document.body;
+const canvas = document.getElementById('canvas');
 
 function generateGrid(gridSize) {
-
-    const canvas = document.getElementById('canvas');
     const cellSize = calculateCellSize(canvas, gridSize);
 
     for (let i = 0; i < gridSize; i++) {
@@ -15,7 +17,10 @@ function generateGrid(gridSize) {
             cell.style.height = `${cellSize}px`;
             cell.style.width = `${cellSize}px`;
             console.log("height " + cell.style.height + " width " + cell.style.width);
-            cell.style.border = "black 1px solid";
+            // cell.style.border = "black 1px solid";
+            cell.addEventListener("mouseover", (e) => {
+                shadeIn(cell);
+            })
             row.appendChild(cell);
         }
         canvas.appendChild(row);
@@ -27,6 +32,20 @@ function calculateCellSize(canvas, rows) {
     return canvasSize/rows;
 }
 
+function shadeIn(cell) {
+    if (isMouseDown) {
+        cell.style.backgroundColor = "black";
+    }
+}
+
+body.addEventListener('mousedown', (e) => {
+    isMouseDown = true;
+});
+
+body.addEventListener('mouseup', (e) => {
+    isMouseDown = false;
+});
+
 window.onload = () => {
     generateGrid(DEFAULT_SIZE);
-}
+} 
