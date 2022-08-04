@@ -2,9 +2,9 @@ const DEFAULT_SIZE = 16;
 let isMouseDown = false;
 
 const body = document.body;
-const canvas = document.getElementById('canvas');
 
 function generateGrid(gridSize) {
+    const canvas = document.getElementById('canvas');
     const cellSize = calculateCellSize(canvas, gridSize);
 
     for (let i = 0; i < gridSize; i++) {
