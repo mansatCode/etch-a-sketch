@@ -69,6 +69,7 @@ body {
     /* Slider */
 
 .slider {
+    margin-top: 18px;
     width: 250px;
     height: 100px;
     display: flex;
@@ -148,7 +149,7 @@ body {
 button {
     width: 75%;
     padding: 10px;
-    margin: 20px 0;
+    margin: 14px 0;
     background-color: #ab95e2;
     border: 1px solid #482673;
     color: #fff;

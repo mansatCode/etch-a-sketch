@@ -3,6 +3,8 @@ let isMouseDown = false;
 
 const body = document.body;
 const clearBtn = document.getElementById('clear');
+const rainbowBtn = document.getElementById('rainbowMode');
+const colourBtn = document.getElementById('colourMode');
 
 function generateGrid(gridSize) {
     // console.log("Resizing grid: " + gridSize);
