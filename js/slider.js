@@ -1,3 +1,5 @@
+const canvas = document.getElementById('canvas');
+
 class Slider {
     constructor (rangeElement, valueElement, options) {
       this.rangeElement = rangeElement
@@ -32,8 +34,13 @@ class Slider {
     }
   
     updateSlider (newValue) {
-      this.valueElement.innerHTML = this.asDimension(this.rangeElement.value)
-      this.rangeElement.style = this.generateBackground(this.rangeElement.value)
+        this.valueElement.textContent = this.asDimension(this.rangeElement.value)
+        this.rangeElement.style = this.generateBackground(this.rangeElement.value)
+
+        // delete old grid
+        canvas.replaceChildren();
+        // generate new grid
+        generateGrid(this.rangeElement.value);
     }
   }
   
