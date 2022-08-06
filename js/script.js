@@ -47,6 +47,7 @@ function calculateCellSize(canvas, rows) {
     return canvasSize/rows;
 }
 
+//TODO - add colour picker
 function draw(cell) {
     switch(penMode) {
         case COLOUR:
@@ -56,7 +57,10 @@ function draw(cell) {
             cell.style.backgroundColor = "white";
             break;
         case RAINBOW:
-            cell.style.backgroundColor = "red";
+            const randR = Math.floor(Math.random() * 256);
+            const randG = Math.floor(Math.random() * 256);
+            const randB = Math.floor(Math.random() * 256);
+            cell.style.backgroundColor = `rgb(${randR}, ${randG}, ${randB})`;
             break;
     }
 }
