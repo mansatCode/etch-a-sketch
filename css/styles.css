@@ -66,11 +66,15 @@ body {
     display: flex;
 }
 
+.main .settings {
+    margin-right: 24px;
+}
+
     /* Slider */
 
 .slider {
     margin-top: 18px;
-    width: 250px;
+    width: 200px;
     height: 100px;
     display: flex;
     align-items: center;
@@ -84,11 +88,11 @@ body {
 }
 
 .rangeSlider {
-    width: 75%;
+    width: 100%;
 }
 
 .rangeValue {
-    width: 75%;
+    width: 100%;
     margin-top: 15px;
     text-align: center;
     padding-top: 10px;
@@ -147,7 +151,7 @@ body {
     /* Buttons */
 
 button {
-    width: 75%;
+    width: 200px;
     padding: 10px;
     margin: 14px 0;
     background-color: #ab95e2;
@@ -155,6 +159,13 @@ button {
     color: #fff;
     font-weight: 100;
     font-size: 12px;
+}
+
+.buttons {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
 }
 
 button:hover {

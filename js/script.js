@@ -23,6 +23,11 @@ function generateGrid(gridSize) {
             // console.log("height " + cell.style.height + " width " + cell.style.width);
             // cell.style.border = "black 1px solid";
             cell.addEventListener("mouseover", (e) => {
+                if (isMouseDown) {
+                    shadeIn(cell);
+                }
+            })
+            cell.addEventListener("click", (e) => {
                 shadeIn(cell);
             })
             row.appendChild(cell);
@@ -37,9 +42,7 @@ function calculateCellSize(canvas, rows) {
 }
 
 function shadeIn(cell) {
-    if (isMouseDown) {
-        cell.style.backgroundColor = "black";
-    }
+    cell.style.backgroundColor = "black";
 }
 
 function clearCanvas() {
