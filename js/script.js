@@ -1,10 +1,16 @@
 const DEFAULT_SIZE = 16;
+const COLOUR = 1;
+const RAINBOW = 2;
+const ERASER = 3;
+
+let penMode = COLOUR;
 let isMouseDown = false;
 
 const body = document.body;
 const clearBtn = document.getElementById('clear');
 const rainbowBtn = document.getElementById('rainbowMode');
 const colourBtn = document.getElementById('colourMode');
+const eraserBtn = document.getElementById('eraserMode');
 
 function generateGrid(gridSize) {
     // console.log("Resizing grid: " + gridSize);
@@ -24,11 +30,11 @@ function generateGrid(gridSize) {
             // cell.style.border = "black 1px solid";
             cell.addEventListener("mouseover", (e) => {
                 if (isMouseDown) {
-                    shadeIn(cell);
+                    draw(cell);
                 }
             })
             cell.addEventListener("click", (e) => {
-                shadeIn(cell);
+                draw(cell);
             })
             row.appendChild(cell);
         }
@@ -41,8 +47,18 @@ function calculateCellSize(canvas, rows) {
     return canvasSize/rows;
 }
 
-function shadeIn(cell) {
-    cell.style.backgroundColor = "black";
+function draw(cell) {
+    switch(penMode) {
+        case COLOUR:
+            cell.style.backgroundColor = "black";
+            break;
+        case ERASER:
+            cell.style.backgroundColor = "white";
+            break;
+        case RAINBOW:
+            cell.style.backgroundColor = "red";
+            break;
+    }
 }
 
 function clearCanvas() {
@@ -52,9 +68,42 @@ function clearCanvas() {
     generateGrid(dimension);
 }
 
+function clearButtonSelection() {
+    switch(penMode) {
+        case COLOUR:
+            colourBtn.classList.remove('selected');
+            break;
+        case ERASER:
+            eraserBtn.classList.remove('selected');
+            break;
+        case RAINBOW:
+            rainbowBtn.classList.remove('selected');
+            break;
+    }
+}
+
 clearBtn.addEventListener('click', (e) => {
     clearCanvas();
 });
+
+colourBtn.addEventListener('click', (e) => {
+    clearButtonSelection();
+    penMode = COLOUR;
+    colourBtn.classList.add('selected');
+});
+
+eraserBtn.addEventListener('click', (e) => {
+    clearButtonSelection();
+    penMode = ERASER;
+    eraserBtn.classList.add('selected');
+});
+
+rainbowBtn.addEventListener('click', (e) => {
+    clearButtonSelection();
+    penMode = RAINBOW;
+    rainbowBtn.classList.add('selected');
+});
+
 
 body.addEventListener('mousedown', (e) => {
     isMouseDown = true;
@@ -66,4 +115,5 @@ body.addEventListener('mouseup', (e) => {
 
 window.onload = () => {
     generateGrid(DEFAULT_SIZE);
+    colourBtn.classList.add('selected');
 } 
