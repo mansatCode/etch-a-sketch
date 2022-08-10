@@ -2,7 +2,9 @@ const DEFAULT_SIZE = 16;
 const COLOUR = 1;
 const RAINBOW = 2;
 const ERASER = 3;
+const DEFAULT_COLOUR = "#000000";
 
+let penColour = DEFAULT_COLOUR;
 let penMode = COLOUR;
 let isMouseDown = false;
 
@@ -11,6 +13,7 @@ const clearBtn = document.getElementById('clear');
 const rainbowBtn = document.getElementById('rainbowMode');
 const colourBtn = document.getElementById('colourMode');
 const eraserBtn = document.getElementById('eraserMode');
+const colourPicker = document.getElementById('colourPicker');
 
 function generateGrid(gridSize) {
     // console.log("Resizing grid: " + gridSize);
@@ -51,7 +54,7 @@ function calculateCellSize(canvas, rows) {
 function draw(cell) {
     switch(penMode) {
         case COLOUR:
-            cell.style.backgroundColor = "black";
+            cell.style.backgroundColor = penColour;
             break;
         case ERASER:
             cell.style.backgroundColor = "white";
@@ -108,7 +111,6 @@ rainbowBtn.addEventListener('click', (e) => {
     rainbowBtn.classList.add('selected');
 });
 
-
 body.addEventListener('mousedown', (e) => {
     isMouseDown = true;
 });
@@ -116,6 +118,12 @@ body.addEventListener('mousedown', (e) => {
 body.addEventListener('mouseup', (e) => {
     isMouseDown = false;
 });
+
+colourPicker.addEventListener("change", watchColourPicker, false);
+
+function watchColourPicker(event) {
+    penColour = event.target.value;
+}
 
 window.onload = () => {
     generateGrid(DEFAULT_SIZE);
