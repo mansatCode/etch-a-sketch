@@ -2,4 +2,4 @@
 
 Drawing game to practice DOM manipulation. Built with HTML, CSS and JavaScript.
 
-[Try it here!](mansatcode.github.io/etch-a-sketch/)
+[Try it here!](https://mansatcode.github.io/etch-a-sketch/)
